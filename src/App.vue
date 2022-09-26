@@ -2,7 +2,7 @@
 
   <Header/>
 
-  <Home/>
+  <RouterView/>
 
   <Footer/>
 
@@ -12,15 +12,25 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Home from "@/pages/Home";
+import store from "@/scripts/store";
+// import Home from "@/pages/Home";
 
 export default {
   name: 'App',
   components: {
-    Home,
+    // Home,
     Footer,
     Header
+  },
+
+  setup(){
+    const id = sessionStorage.getItem("id");
+
+    if(id){
+      store.commit('setAccount',id);
+    }
   }
+
 }
 </script>
 
