@@ -11,7 +11,7 @@
               </li>
               <li>
                 <router-link to="/login" class="text-white" v-if="!$store.state.account.id">로그인</router-link>
-                <a class="text-white" @click="logout()" v-else>로그아웃</a>
+                <a class="text-white" @click="logout()" v-else style="cursor: pointer">로그아웃</a>
               </li>
             </ul>
           </div>
@@ -45,7 +45,7 @@ export default {
 
     const logout = () => {
       store.commit('setAccount', 0);
-      sessionStorage.removeItem("id");
+      // sessionStorage.removeItem("id");
       router.push({path:'/'})
     }
 
